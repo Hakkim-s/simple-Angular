@@ -1,0 +1,18 @@
+p {
+  font-family: Lato;
+}
+
+input {
+  box-shadow: 2px 2px;
+}
+::ng-deep .ng-deep-test {
+  background: rgb(197, 88, 88);
+  font-size: 14px;
+}
+
+.test1 {
+  color: darkblue;
+  font-style: italic;
+  text-transform: uppercase;
+  font-weight: bold;
+}

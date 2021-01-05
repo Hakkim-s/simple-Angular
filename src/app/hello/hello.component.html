@@ -1,0 +1,19 @@
+<h1 class="childclasscolor"> Child Hello Component Starts</h1>
+
+<h1>Hello {{ name }}</h1>
+<h1>{{ toChild }}</h1>
+<input [(ngModel)]="toChild" />
+{{toChild}}
+<h2 style="color:red">{{ _dataservice.count }}</h2>
+<button class="ng-deep-test" (click)="showNametype()">Output example</button>
+<br />
+<button (click)="clearNametype()">clear Output example</button>
+<br />
+<input [(ngModel)]="data" />
+{{data}}
+<br/>
+<!--  apply style to the host element's specific class ie: show   -->
+
+<p [ngClass]="{'show': show}">Host-Context Show</p>
+<button (click)="showClass()">Host-Context</button>
+<h1 class="childclasscolor">Child Hello Component End</h1>

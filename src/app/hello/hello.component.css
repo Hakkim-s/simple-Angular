@@ -1,0 +1,16 @@
+h1 {
+  font-family: Lato;
+}
+.childclasscolor {
+  color: darkblue;
+  background-color: violet;
+}
+/* apply style to the host element 
+eg: my-app,app-hello */
+:host{
+    color:orange;
+}
+/* apply style to the host element's specific class ie: show  */
+:host-context(app-hello) .show{
+    color:blue;
+}
