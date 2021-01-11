@@ -1,106 +1,23 @@
-<div class="row">
-  <div class="col-md-6" style="border-right: 1px solid;">
-    <!-- appHighlight="blue" -->
-    <app-hello *ngIf="show" (shownametype)="receiveNametype('pass')" (clearnametype)="receiveclearNametype()"
-      aliasName="{{ name }}" toChild=" Got from  parent"></app-hello>
-    {{ fromChild }}
-    <p>Start editing to see some magic happen :)</p>
-
-    <h2 style="color: blue">{{ _dataservice.count }}</h2>
-    <br />
-
-    <button (click)="increaseCount()">Increase</button>
-
-    <br />
-    <input [(ngModel)]="tempName" />
-
-    ngmodel : {{ tempName }}
-    <br />
-
-    <div #userDetails>
-      <input [(ngModel)]="userName" #user="ngModel" />
-
-      <button class="ng-deep-test test1" (click)="onSubmit(user, userDetails)">On Submit</button>
-      template reference : {{ user.value }}
-    </div>
-
-    <form #userDoubleDetails="ngForm" (ngSubmit)="onSubmitform(userDoubleDetails)">
-      <input name="name" ngModel required />
-      {{
-    userDoubleDetails.submitted &&
-    userDoubleDetails.form.controls.name.errors.required
-      ? "Required Name"
-      : ""
-  }}
-      <input name="age" ngModel />
-
-      <button type="submit">OnSubmitForm</button>
-    </form>
-
-    <input [(ngModel)]="name" />
-    <br />
-    <button (click)="toggle()">Show/hide hello component ngOnInit</button>
-  </div>
-  <div class="col-md-6">
-    <br />
-    Dynamic Component Loading
-    <br />
-
-    <button (click)="dynamicLoad(0)">Hi</button>
-    <br />
-    <ng-template appHost></ng-template>
-
-    <button (click)="dynamicLoad(1)">Bye</button>
-    <p appHighlight> Host Listener </p>
-
-
-    <!--<elementRef>containerRef<elementRef>  -->
-    <ng-template [appShow]="display">
-      <!-- <p *appShow="display"> Structural Directives </p> -->
-      <p> Structural Directives </p>
-    </ng-template>
-    <button (click)="show_hide()">show/hide Structural Directives</button>
-
-    <div>
-      This ia an example for ng-template: <ng-template #template let-y let-x='name' ><b> {{y}} {{x}} ng-TemplateOutlet</b></ng-template>
-      <br />
-      This ia an example for ng-container:<ng-container>Yes</ng-container>
-      <br />
-      This ia an example for ng-TemplateOutlate:<ng-container *ngTemplateOutlet="template; context:tempContext" ></ng-container>
-
-    </div>
-    Table contant
-    <table>
-      <tbody>
-        <tr>
-          <th>Firstname</th>
-          <th>Age</th>
-        </tr>
-        <tr *ngFor="let item of data">
-          <ng-container *ngIf="item.name">
-            <td>{{item.name}}</td>
-            <td *ngIf="item.age">{{item.age}}</td>
-          </ng-container>
-        </tr>
-      </tbody>
-    </table>
-    <app-pipe-demo></app-pipe-demo>
-  </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-</div>
+<ul class="list-group list-group-horizontal mx-3 my-3">
+  <li class="list-group-item">
+    <a routerLink="/home">Home</a>
+  </li>
+  <li class="list-group-item">
+    <a routerLink="/test-compo">Input/Output</a>
+  </li>
+  <li class="list-group-item">
+    <a routerLink="/hello">Hello</a>
+  </li>
+  <li class="list-group-item">
+    <a routerLink="/pipe-demo">pipe Demo</a>
+  </li>
+  <li class="list-group-item">
+    <a routerLink="/hi">Dynamic Component</a>
+  </li>
+  <li class="list-group-item">
+    <a routerLink="/crud-operation">CRUD-operation</a>
+  </li>
+</ul>
+<section class="container">
+  <router-outlet></router-outlet>
+</section>

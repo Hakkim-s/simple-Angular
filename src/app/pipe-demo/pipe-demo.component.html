@@ -1,89 +1,93 @@
-<h4><b>pipe-demo Starts Here</b></h4>
-<ul>
-    <li>{{Today_data }}</li>
-</ul>
-<div class='row'>
-    <div class='col-md-3'>
-        <ul>
-            <p><b>Date</b></p>
-            <li>{{Today_data }}</li>
-            <li>{{Today_data | date}}</li>
-            <li>{{Today_data | date:'dd-MM-yyyy'}}</li>
-            <li>{{Today_data | date:'dd/MM/yyyy'}}</li>
-            <li>{{Today_data | date:'dd-MMM-yyyy'}}</li>
+<section class="">
 
-        </ul>
+    <h4><b>pipe-demo Starts Here</b></h4>
+    <ul>
+        <li>{{Today_data }}</li>
+    </ul>
+    <div class='row'>
+        <div class='col-md-3'>
+            <ul>
+                <p><b>Date</b></p>
+                <li>{{Today_data }}</li>
+                <li>{{Today_data | date}}</li>
+                <li>{{Today_data | date:'dd-MM-yyyy'}}</li>
+                <li>{{Today_data | date:'dd/MM/yyyy'}}</li>
+                <li>{{Today_data | date:'dd-MMM-yyyy'}}</li>
+
+            </ul>
+        </div>
+        <div class='col-md-3'>
+            <ul>
+                <p><b>Number</b></p>
+                <li>{{num}}</li>
+                <li>{{num | number}}</li>
+                <li>{{num | number:'5.1-3'}}</li>
+                <li>{{num | number:'5.3-4'}}</li>
+
+            </ul>
+        </div>
+        <div class='col-md-3'>
+
+            <ul>
+                <p><b>Percentage</b></p>
+                <li>{{ToPercentage}}</li>
+                <li>{{ToPercentage | percent:'2.1'}}</li>
+                <li>{{ToPercentage | percent:'2.1-3'}}</li>
+                <li>{{ToPercentage | percent:'3.1-3'}}</li>
+            </ul>
+        </div>
+        <div class='col-md-3'>
+
+            <ul>
+                <p><b>Currency</b></p>
+                <li>{{Currency}}</li>
+                <li>{{Currency | currency}}</li>
+                <li>{{Currency | currency:'INR'}}</li>
+                <li>{{Currency | currency:'EUR'}}</li>
+                <li>{{Currency | currency:'INR':'code'}}</li>
+                <li>{{Currency | currency:'INR':'code':'10.1'}}</li>
+
+
+            </ul>
+        </div>
+
+
     </div>
-    <div class='col-md-3'>
-        <ul>
-            <p><b>Number</b></p>
-            <li>{{num}}</li>
-            <li>{{num | number}}</li>
-            <li>{{num | number:'5.1-3'}}</li>
-            <li>{{num | number:'5.3-4'}}</li>
+    <div class="row">
 
-        </ul>
-    </div>
-    <div class='col-md-3'>
-
-        <ul>
-            <p><b>Percentage</b></p>
-            <li>{{ToPercentage}}</li>
-            <li>{{ToPercentage | percent:'2.1'}}</li>
-            <li>{{ToPercentage | percent:'2.1-3'}}</li>
-            <li>{{ToPercentage | percent:'3.1-3'}}</li>
-        </ul>
-    </div>
-    <div class='col-md-3'>
-
-        <ul>
-            <p><b>Currency</b></p>
-            <li>{{Currency}}</li>
-            <li>{{Currency | currency}}</li>
-            <li>{{Currency | currency:'INR'}}</li>
-            <li>{{Currency | currency:'EUR'}}</li>
-            <li>{{Currency | currency:'INR':'code'}}</li>
-            <li>{{Currency | currency:'INR':'code':'10.1'}}</li>
-
-
-        </ul>
+        <div class='col-md-4'>
+            <p><b>UpperCase</b></p>
+            {{'hakkim Shaikdawood' | uppercase}}
+        </div>
+        <div class='col-md-4'>
+            <p><b>LowerCase</b></p>
+            {{'hakkim Shaikdawood' | lowercase}}
+        </div>
+        <div class='col-md-4'>
+            <p><b>TitleCase</b></p>
+            {{'hakkim Shaikdawood' | titlecase}}
+        </div>
     </div>
 
+    <div>
+        <p><b>JSON</b></p>
 
-</div>
-<div class="row">
+        {{obj | json}} {{arr}}
+        <p><b>slice</b></p>
 
-    <div class='col-md-4'>
-        <p><b>UpperCase</b></p>
-        {{'hakkim Shaikdawood' | uppercase}}
+        {{arr | slice:2}}
+        <br />
+        {{arr | slice:2:5}}
+        <br />
+        {{arr | slice:-2}}
+
+        <p><b>KeyValue</b></p>
+        <!-- convert arr to obj -->
+        {{arr | keyvalue | json}}
+        <p><b>custom</b></p>
+        <!-- Custom pipe -->
+        {{'ro' | append : ' six'}}
+
     </div>
-    <div class='col-md-4'>
-        <p><b>LowerCase</b></p>
-        {{'hakkim Shaikdawood' | lowercase}}
-    </div>
-    <div class='col-md-4'>
-        <p><b>TitleCase</b></p>
-        {{'hakkim Shaikdawood' | titlecase}}
-    </div>
-</div>
 
-<div>
-    <p><b>JSON</b></p>
-
-    {{obj | json}} {{arr}}
-    <p><b>slice</b></p>
-
-    {{arr | slice:2}}
-    <br/>
-    {{arr | slice:2:5}}
-    <br/>
-    {{arr | slice:-2}}
-
-    <p><b>KeyValue</b></p>
-    <!-- convert arr to obj -->
-    {{arr | keyvalue | json}}
-   <p><b>custom</b></p>
-    <!-- Custom pipe -->
-    {{'ro' | append : ' six'}}
-    
-</div>
+</section>
