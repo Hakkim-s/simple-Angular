@@ -39,8 +39,8 @@
 
 </table>
 <div *ngIf="data != null">
-<pagination-controls (pageChange)="filterdataList($event)" previousLabel="Pre" nextLabel="Next">
-</pagination-controls>
+    <pagination-controls (pageChange)="filterdataList($event)" previousLabel="Pre" nextLabel="Next">
+    </pagination-controls>
 
 </div>
 
@@ -55,7 +55,7 @@
         <th>Employee Name <i class="fa fa-sort c-pointer" aria-hidden="true"></i></th>
         <th>Employee Salary</th>
         <th>Employee age</th>
-        <th >Profile image</th>
+        <th>Profile image</th>
     </thead>
     <tbody>
         <tr *ngFor="let item of userDataList;let i = index">
@@ -64,7 +64,7 @@
             <td>{{item.employee_salary}}</td>
             <td>{{item.employee_age}}</td>
             <!-- <ng-container *ngIf="item.profile_image"> -->
-                <td>{{item.profile_image}}</td>
+            <td>{{item.profile_image}}</td>
 
 
             <!-- </ng-container> -->
