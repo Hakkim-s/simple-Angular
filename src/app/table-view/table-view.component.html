@@ -1,0 +1,74 @@
+<!-- {{data | json}} -->
+<div class="input-group" *ngIf="data != null">
+    <input type="text" [(ngModel)]="searchText" class="form-control col-md-6" placeholder="Search" />
+    <div class="input-group-append">
+        <span class="input-group-text " (click)="clearsearchText()"> clear</span>
+    </div>
+</div>
+
+<table class="table table-striped" *ngIf="data != null">
+    <thead>
+        <th>id <i class="fa fa-sort c-pointer" (click)="eventSortData('id')" aria-hidden="true"></i></th>
+        <th>Name <i class="fa fa-sort c-pointer" (click)="eventSortData('name')" aria-hidden="true"></i></th>
+        <th>Username</th>
+        <th>Email</th>
+        <th>Street</th>
+        <th>Suit</th>
+        <th>City</th>
+        <th>zipcode</th>
+        <th>lattitude</th>
+        <th>Longtitude</th>
+    </thead>
+    <tbody>
+        <!-- | filter : {name : searchText , username : searchText}  -->
+        <tr *ngFor="let res of data  | filter : searchText | paginate: { itemsPerPage: 5, currentPage: currentPageNo };
+        let i = index
+      ">
+            <td>{{res.id}}</td>
+            <td>{{res.name}}</td>
+            <td>{{res.username}}</td>
+            <td>{{res.email}}</td>
+            <td>{{res.address.street}}</td>
+            <td>{{res.address.suite}}</td>
+            <td>{{res.address.city}}</td>
+            <td>{{res.address.zipcode}}</td>
+            <td>{{res.address.geo.lat}}</td>
+            <td>{{res.address.geo.lng}}</td>
+        </tr>
+    </tbody>
+
+</table>
+<div *ngIf="data != null">
+<pagination-controls (pageChange)="filterdataList($event)" previousLabel="Pre" nextLabel="Next">
+</pagination-controls>
+
+</div>
+
+{{userDataList |json}}
+
+
+<button class="btn btn-success" (click)="getJsonData()">Get employee Data</button>
+
+<table class="table table-striped" *ngIf="userData != null">
+    <thead>
+        <th>id <i class="fa fa-sort c-pointer" aria-hidden="true"></i></th>
+        <th>Employee Name <i class="fa fa-sort c-pointer" aria-hidden="true"></i></th>
+        <th>Employee Salary</th>
+        <th>Employee age</th>
+        <th >Profile image</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of userDataList;let i = index">
+            <td>{{item.id}}</td>
+            <td>{{item.employee_name}}</td>
+            <td>{{item.employee_salary}}</td>
+            <td>{{item.employee_age}}</td>
+            <!-- <ng-container *ngIf="item.profile_image"> -->
+                <td>{{item.profile_image}}</td>
+
+
+            <!-- </ng-container> -->
+        </tr>
+    </tbody>
+
+</table>

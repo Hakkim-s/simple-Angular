@@ -16,3 +16,9 @@ input {
   text-transform: uppercase;
   font-weight: bold;
 }
+
+.mx-95 {
+  width: 100%;
+  margin-right: 45px;
+  margin-left: 45px;
+}

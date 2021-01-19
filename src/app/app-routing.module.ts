@@ -7,6 +7,7 @@ import { hiComponent } from "./hi.component";
 import { PipeDemoComponent } from "./pipe-demo/pipe-demo.component";
 import { TestComponent } from "./test/test.component";
 import { CrudOperationComponent } from './crud-operation/crud-operation.component';
+import { TableViewComponent } from "./table-view/table-view.component";
 
 const routes: Routes = [
   { path: "", redirectTo: "/home", pathMatch: "full" },
@@ -16,6 +17,9 @@ const routes: Routes = [
   { path: "test-compo", component: TestComponent },
   { path: "pipe-demo", component: PipeDemoComponent },
   { path: "crud-operation", component: CrudOperationComponent },  
+  { path: "table-view", component: TableViewComponent },  
+
+  
   { path: "*", component: BeforeLoginLayoutComponent },
 ];
 
