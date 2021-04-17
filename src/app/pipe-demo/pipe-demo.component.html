@@ -1,6 +1,8 @@
 <section class="">
 
-    <h4><b>pipe-demo Starts Here</b></h4>
+    <h4><b>Pipe-demo Starts Here</b></h4>
+    <h4><b>Pure Pipe</b></h4>
+
     <ul>
         <li>{{Today_data }}</li>
     </ul>
@@ -45,7 +47,7 @@
                 <li>{{Currency | currency:'INR'}}</li>
                 <li>{{Currency | currency:'EUR'}}</li>
                 <li>{{Currency | currency:'INR':'code'}}</li>
-                <li>{{Currency | currency:'INR':'code':'10.1'}}</li>
+                <li>{{Currency | currency:'INR':'code':'10.7'}}</li>
 
 
             </ul>
@@ -73,7 +75,7 @@
         <p><b>JSON</b></p>
 
         {{obj | json}} {{arr}}
-        <p><b>slice</b></p>
+        <p><b>Slice</b></p>
 
         {{arr | slice:2}}
         <br />
@@ -89,5 +91,30 @@
         {{'ro' | append : ' six'}}
 
     </div>
+
+    <hr>
+
+    <h4><b>Impure Pipe</b></h4>
+
+
+    <input [(ngModel)]='name' #inputValue>
+    <button (click)="addName(inputValue.value)">Add</button>
+
+    <div *ngFor="let user of users |filterimpure :'gender':'m'">
+        {{user.name}}
+
+    </div>
+    <hr>
+
+    <h4><b>Async Pipe</b></h4>
+
+    <div> Async pipe : {{ jsonData | async |json}}</div>
+
+    <div> Async pipe,jsonDataPromise : {{ jsonDataPromise | async |json}}</div>
+    <div> Async pipe,jsonDataobservable : {{ jsonDataobservable | async |json}}</div>
+
+
+
+    <div> Data : {{data$ | async}} </div>
 
 </section>

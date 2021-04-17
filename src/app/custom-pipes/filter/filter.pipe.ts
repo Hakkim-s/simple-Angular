@@ -1,9 +1,9 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'filter'
+  name: 'filter_pipe1'
 })
-export class FilterPipe implements PipeTransform {
+export class FilterPipe1 implements PipeTransform {
 
   // transform(items: any, filter: any, defaultFilter: boolean): any {
   //   if (!filter){
@@ -55,4 +55,23 @@ export class FilterPipe implements PipeTransform {
     })
 
   }
+}
+
+@Pipe({
+  name: 'filter_pipe2'
+})
+export class FilterPipe2 implements PipeTransform {
+
+  transform(value: any, args?: any): any {
+    if (!args) {
+      return value;
+    }
+    return value.filter((val) => {
+      let rVal = (val.id.toString().toLowerCase().includes(args)) || (val.first_name.toLocaleLowerCase().includes(args))
+      || (val.last_name.toLocaleLowerCase().includes(args))|| (val.email.toLocaleLowerCase().includes(args));
+      return rVal;
+    })
+
+  }
+
 }

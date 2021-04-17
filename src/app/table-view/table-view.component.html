@@ -21,7 +21,7 @@
     </thead>
     <tbody>
         <!-- | filter : {name : searchText , username : searchText}  -->
-        <tr *ngFor="let res of data  | filter : searchText | paginate: { itemsPerPage: 5, currentPage: currentPageNo };
+        <tr *ngFor="let res of data  | filter_pipe1 : searchText | paginate: { itemsPerPage: 5, currentPage: currentPageNo };
         let i = index
       ">
             <td>{{res.id}}</td>

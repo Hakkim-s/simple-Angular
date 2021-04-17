@@ -8,6 +8,9 @@ import { PipeDemoComponent } from "./pipe-demo/pipe-demo.component";
 import { TestComponent } from "./test/test.component";
 import { CrudOperationComponent } from './crud-operation/crud-operation.component';
 import { TableViewComponent } from "./table-view/table-view.component";
+import { RxjsObservableComponent } from "./rxjs-observable/rxjs-observable.component";
+import { NavigationComponent } from "./navigation/navigation.component";
+import { NavigtionTestComponent } from "./navigtion-test/navigtion-test.component";
 
 const routes: Routes = [
   { path: "", redirectTo: "/home", pathMatch: "full" },
@@ -18,6 +21,11 @@ const routes: Routes = [
   { path: "pipe-demo", component: PipeDemoComponent },
   { path: "crud-operation", component: CrudOperationComponent },  
   { path: "table-view", component: TableViewComponent },  
+  { path: "rxjs-observale", component: RxjsObservableComponent }, 
+  { path: "navigation", component: NavigationComponent },  
+  { path: "navigation-test", component: NavigtionTestComponent },  
+
+
 
   
   { path: "*", component: BeforeLoginLayoutComponent },

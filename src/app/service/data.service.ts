@@ -25,4 +25,8 @@ export class DataService {
   getUserData() {
     return this.http.get("http://dummy.restapiexample.com/api/v1/employees");
   }
+
+  getEmployeData() {
+    return this.http.get<any>('http://localhost:3000/employees/');
+  }
 }
