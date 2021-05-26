@@ -1,5 +1,6 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
+import { BehaviorSubject, observable } from "rxjs";
 
 @Injectable({
   providedIn: "root",
@@ -7,6 +8,11 @@ import { Injectable } from "@angular/core";
 export class DataService {
   count = 2;
   name: any;
+
+  private menuTitle = new BehaviorSubject("");
+
+  public currentMenuTitle = this.menuTitle.asObservable();
+
   constructor(private http: HttpClient) {
     this.getData();
     this.getUserData();
@@ -27,6 +33,10 @@ export class DataService {
   }
 
   getEmployeData() {
-    return this.http.get<any>('http://localhost:3000/employees/');
+    return this.http.get<any>("http://localhost:3000/employees/");
+  }
+
+  changeMenuTitle(message: string) {
+    this.menuTitle.next(message);
   }
 }

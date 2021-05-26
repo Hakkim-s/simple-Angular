@@ -49,6 +49,7 @@ export class TestComponent
 
   ngOnInit() {
     console.log("app component Init", this.viewChild);
+    this._dataservice.changeMenuTitle('Component interaction using I/O');
   }
   ngDoCheck() {
     console.log("App component Docheck");

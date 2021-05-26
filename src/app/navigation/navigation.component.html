@@ -1,5 +1,22 @@
-<h1>
+<!-- <h1>
     You are in Navigation component 
 </h1>
 
 {{test}}
+ -->
+
+ <table class="table table-striped table-bordered table-hover fixed_header">
+    <thead >
+      <th>Name </th>
+      <th>Marks </th>
+    </thead>
+  
+    <tbody >
+      <tr *ngFor="let item of studentData">
+        <td>{{item.name}}</td>
+        <td>{{item.marks}}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p>{{this.convertedObjToArr | json}}</p>

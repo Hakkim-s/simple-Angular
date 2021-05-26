@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup } from "@angular/forms";
+import { DataService } from "../service/data.service";
 
 @Component({
   selector: "app-before-login-layout",
@@ -8,8 +9,11 @@ import { FormBuilder, FormGroup } from "@angular/forms";
 })
 export class BeforeLoginLayoutComponent implements OnInit {
   employeeForm: FormGroup;
-
-  constructor(private formBuilder: FormBuilder) {
+  public menuTitle: string;
+  constructor(
+    private formBuilder: FormBuilder,
+    private _dataservice: DataService
+  ) {
     this.createemployeeForm();
   }
   ngOnInit(): void {}
@@ -20,6 +24,11 @@ export class BeforeLoginLayoutComponent implements OnInit {
       lastName: [""],
       emailId: [""],
     });
+
+    this._dataservice.changeMenuTitle("Home Component");
+    this._dataservice.currentMenuTitle.subscribe(
+      (title) => (this.menuTitle = title)
+    );
   }
   onSubmit() {
     console.log("Your form data : ", this.employeeForm.value);

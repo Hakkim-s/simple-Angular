@@ -6,7 +6,7 @@ import { HelloComponent } from "./hello/hello.component";
 import { hiComponent } from "./hi.component";
 import { PipeDemoComponent } from "./pipe-demo/pipe-demo.component";
 import { TestComponent } from "./test/test.component";
-import { CrudOperationComponent } from './crud-operation/crud-operation.component';
+import { CrudOperationComponent } from "./crud-operation/crud-operation.component";
 import { TableViewComponent } from "./table-view/table-view.component";
 import { RxjsObservableComponent } from "./rxjs-observable/rxjs-observable.component";
 import { NavigationComponent } from "./navigation/navigation.component";
@@ -19,18 +19,14 @@ const routes: Routes = [
   { path: "hi", component: hiComponent },
   { path: "test-compo", component: TestComponent },
   { path: "pipe-demo", component: PipeDemoComponent },
-  { path: "crud-operation", component: CrudOperationComponent },  
-  { path: "table-view", component: TableViewComponent },  
-  { path: "rxjs-observale", component: RxjsObservableComponent }, 
-  { path: "navigation", component: NavigationComponent },  
-  { path: "navigation-test", component: NavigtionTestComponent },  
+  { path: "crud-operation", component: CrudOperationComponent },
+  { path: "table-view", component: TableViewComponent },
+  { path: "rxjs-observale", component: RxjsObservableComponent },
+  { path: "navigation", component: NavigationComponent },
+  { path: "navigation-test", component: NavigtionTestComponent },
 
-
-
-  
   { path: "*", component: BeforeLoginLayoutComponent },
 ];
-
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

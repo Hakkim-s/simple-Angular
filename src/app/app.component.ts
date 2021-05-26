@@ -19,7 +19,7 @@ import { byeComponent, hiComponent } from "./hi.component";
   styleUrls: ["./app.component.css"],
   encapsulation: ViewEncapsulation.Emulated,
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   name = "Angular " + VERSION.major;
 
   tempName: any;
@@ -33,14 +33,22 @@ export class AppComponent {
   component = [hiComponent, byeComponent];
 
   display = true;
-  data = [{ name: "Ajay",age: 24 },{ name: "Aravindh",age: 27 },{ name: "Bharath",age: 22 }];
+  data = [
+    { name: "Ajay", age: 24 },
+    { name: "Aravindh", age: 27 },
+    { name: "Bharath", age: 22 },
+  ];
 
-  tempContext = { $implicit:"Implicit Name", name:'Custom Name'  }
-
+  tempContext = { $implicit: "Implicit Name", name: "Custom Name" };
+  public menuTitle: string;
   constructor(
     public _dataservice: DataService,
     public _compRefChild: ComponentFactoryResolver
-  ) {}
+  ) {
+    this._dataservice.currentMenuTitle.subscribe(
+      (title) => (this.menuTitle = title)
+    );
+  }
 
-
+  ngOnInit() {}
 }
